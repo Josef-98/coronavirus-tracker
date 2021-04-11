@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+    crossorigin="anonymous" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqvmap/1.5.1/jqvmap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" />
+
+  <title>Covid cases 2021</title>
+
+</head>
+
+<body style="background-color: #E6E6E6;">
+  <header>
+    <nav class="navbar navbar-expand-lg  text-center" style="background-color: #552fc2;">
+      <div class="container-fluid">
+        <a class="navbar-brand text-white" href="#">Covid-19 Tracker</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon" style="color:white;"><i class="fas fa-bars"></i></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100 d-flex justify-content-center ">
+            <li class="nav-item mx-5 ">
+              <a class="nav-link active text-white" aria-current="page" href="#"> <i class="fas fa-tachometer-alt"></i>
+                Home</a>
+            </li>
+            <!-- <li class="nav-item mx-5 ">
+              <a class="nav-link text-white" href="#"><i class="fas fa-flag Mx-5"></i> Top contries</a>
+            </li> -->
+            <li class="nav-item mx-5  ">
+              <a class="nav-link text-white" href="./contries.html" tabindex="-1" aria-disabled="true"><i
+                  class="fas fa-globe-asia mx-2"></i> All Countries </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main class="my-2">
+    <section class="d-flex justify-content-between my-4">
+      <H2 class=" w-25 mx-5">Overview</H2>
+      <div class="text-center">
+        <select class="form-select w-50 d-inline" aria-label="Default select example" id="select">
+          <option selected>Please select your country</option>
+        </select>
+        <div id="img" class="d-inline mx-3"></div>
+
+    </section>
+    <section class="my-5 d-flex justify-content-around">
+      <div class=" rounded-3 w-50 mx-5 py-3 px-3 border-5 " style="background-color: white;">
+        <p class="float-end rounded-3 text-center"
+          style="background:linear-gradient(#5431be,#b728ec); padding:15px; margin:5px;"><i class="fas fa-viruses fs-1"
+            style="color: white;"></i></p>
+        <h2 class="w-50" id="todayCases"></h2>
+        <h5 class=" ">Today Cases</h5>
+      </div>
+      <div class="rounded-3 w-50 mx-5 py-3 px-3 " style="background-color: white;">
+        <p class="float-end rounded-3 text-center"
+          style="background:linear-gradient(#5431be,#b728ec); padding:15px; margin:5px;"><i
+            class="fas fa-heartbeat fs-1" style="color: white;"></i></p>
+        <h2 class="w-50" id="todayRecovered"></h2>
+        <h5 class=" ">Today Recovered</h5>
+      </div>
+      <div class="rounded-3 w-50 mx-5 py-3 px-3 " style="background-color: white;">
+        <p class="float-end rounded-3 text-center"
+          style="background:linear-gradient(#5431be,#b728ec); padding:15px; margin:5px;"><i
+            class="fas fa-skull-crossbones fs-1" style="color: white;"></i></p>
+        <h2 class="w-50" id="todayDeaths"></h2>
+        <h5 class=" ">Today Deaths</h5>
+      </div>
+
+    </section>
+    <section class="my-5 d-flex justify-content-around">
+      <div class=" rounded-3 w-50 mx-5 py-3 px-3 border-5 " style="background-color: white;">
+        <p class="float-end rounded-3 text-center"
+          style="background:linear-gradient(#5431be,#b728ec); padding:15px; margin:5px;"><i class="fas fa-viruses fs-1"
+            style="color: white;"></i></p>
+        <h2 class="w-50" id="totalCases"></h2>
+        <h5 class=" ">Total Cases</h5>
+      </div>
+      <div class="rounded-3 w-50 mx-5 py-3 px-3 " style="background-color: white;">
+        <p class="float-end rounded-3 text-center"
+          style="background:linear-gradient(#5431be,#b728ec); padding:15px; margin:5px;"><i
+            class="fas fa-heartbeat fs-1" style="color: white;"></i></p>
+        <h2 class="w-50" id="totalRecovered"></h2>
+        <h5 class=" ">Total Recovered</h5>
+      </div>
+      <div class="rounded-3 w-50 mx-5 py-3 px-3 " style="background-color: white;">
+        <p class="float-end rounded-3 text-center"
+          style="background:linear-gradient(#5431be,#b728ec); padding:15px; margin:5px;"><i
+            class="fas fa-skull-crossbones fs-1" style="color: white;"></i></p>
+        <h2 class="w-50" id="totalDeaths"></h2>
+        <h5 class=" ">Total death</h5>
+      </div>
+    </section>
+    <section class="d-flex justify-content-around">
+      <div id="vmap" class="border " style="width:70%;height:520px;border-radius: 10px;"></div>
+      <img src="././img/restez-securite-bonne-sante-modele-flyer-carre-covid-19_23-2148488750.jpg" width="20%" height="500px"
+        alt="">
+    </section>
+  </main>
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+  <script src="./app.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqvmap/1.5.1/jquery.vmap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqvmap/1.5.1/maps/jquery.vmap.world.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.js" integrity="sha512-zO8oeHCxetPn1Hd9PdDleg5Tw1bAaP0YmNvPY8CwcRyUk7d7/+nyElmFrB6f7vg4f7Fv4sui1mcep8RIEShczg==" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
